@@ -7,7 +7,7 @@ public class _3ShellSort {
     private static void exch(Integer[] a, int i, int j) {
         Integer t = a[i];
         a[i] = a[j];
-        a[j] = a[i];
+        a[j] = t;
     }
 
     private static void show(Integer[] a) {

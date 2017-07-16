@@ -7,7 +7,7 @@ public class _2InsertionSort {
     private static void exch(Integer[] a, int i, int j) {
         Integer t = a[i];
         a[i] = a[j];
-        a[j] = a[i];
+        a[j] = t;
     }
 
     private static void show(Integer[] a) {
@@ -26,11 +26,19 @@ public class _2InsertionSort {
     }
 
     public static void sort(Integer[] a) {
-
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (less(a[j], a[j - 1])) {
+                    exch(a, j, j - 1);
+                } else
+                    break;
+            }
+        }
     }
 
     public static void main(String args[]) {
-        Integer[] a = { 1, 3, 1, 6, 5, 8, 4, 6, 9, 4, 4, 7, 8, 9, 0, 7, 6, 11 };
+        Integer[] a = { 0, 1, 12, 32, 1, 43, 67, 88, 9, 0, 0, 0, 102, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 11,
+                88 };
         System.out.println(isSorted(a));
         show(a);
         sort(a);
