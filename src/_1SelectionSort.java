@@ -7,7 +7,7 @@ public class _1SelectionSort {
     private static void exch(Integer[] a, int i, int j) {
         Integer t = a[i];
         a[i] = a[j];
-        a[j] = a[i];
+        a[j] = t;
     }
 
     private static void show(Integer[] a) {
@@ -26,12 +26,20 @@ public class _1SelectionSort {
     }
 
     public static void sort(Integer[] a) {
-
+        for (int i = 0; i < a.length; i++) {
+            int minimumIndex = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (less(a[j], a[minimumIndex])) {
+                    minimumIndex = j;
+                }
+            }
+            exch(a, i, minimumIndex);
+        }
     }
 
     public static void main(String args[]) {
-        Integer[] a = { 1, 3, 1, 6, 5, 8, 4, 6, 9, 4, 4, 7, 8, 9, 0, 7, 6, 11 };
-        System.out.println(isSorted(a));
+        Integer[] a = { 0, 1, 12, 32, 1, 43, 67, 88, 9, 0, 0, 0, 102, 3, 4, 4, 4, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 11,
+                88 };
         show(a);
         sort(a);
         System.out.println(isSorted(a));
