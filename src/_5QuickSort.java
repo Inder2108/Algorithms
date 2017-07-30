@@ -1,5 +1,5 @@
-public class _3ShellSort {
 
+public class _5QuickSort {
     private static boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
     }
@@ -26,27 +26,26 @@ public class _3ShellSort {
     }
 
     public static void sort(Comparable[] a) {
-        int N = a.length;
-        int h = 1;
 
-        // h goes like this till N/3. 1, 4, 13, 40, 121, 364, 1093, ...
-        while (h < N / 3)
-            h = 3 * h + 1;
-        while (h >= 1) {
-            for (int i = h; i < N; i++) {
-                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h)
-                    exch(a, j, j - h);
-            }
-            h = h / 3;
+    }
+
+    private static void partition(Comparable[] a) {
+        int pe=0,j = 0, k = a.length - 1;
+        while (j < k) {
+            if(less(a[j],a[pe])){j++;}
+            if(less(a[pe],a[k])){k--;}
+            if()
         }
     }
 
     public static void main(String args[]) {
-        Comparable[] a = { 1, 3, 1, 6, 5, 8, 4, 6, 9, 4, 4, 7, 8, 9, 0, 7, 6, 11 };
+
+        Integer[] a = { 1, 3, 1, 6, 5, 8, 4, 6, 9, 4, 4, 7, 8, 9, 0, 7, 6, 11 };
         System.out.println(isSorted(a));
         show(a);
         sort(a);
         System.out.println(isSorted(a));
         show(a);
+
     }
 }
